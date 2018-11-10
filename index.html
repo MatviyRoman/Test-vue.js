@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <title>Конструктор</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body class="constructor-page">
 <main>
@@ -43,7 +43,7 @@
                     <div class="cb-result__content">
                         <p class="cb-result__data">
                             <span>Изображение:</span>
-                            <strong>{{ imgTitle }}</strong>
+                            <strong></strong>
                             <strong>Не выбрано</strong>
                         </p>
                         <p class="cb-result__data">
@@ -54,6 +54,7 @@
                         <div class="cb-result__data">
                             <span>Отпечатки:</span>
                             <strong>Не выбраны</strong>
+
                         </div>
                         <div class="cb-result__object">
                             <div class="cb-result__img">
@@ -84,66 +85,61 @@
                                 для начала выберите основу, саму картину, на которую вы и гости вашего праздника будете
                                 наносить отпечатки пальцев с пожеланиями
                             </p>
+
+							<!-- <li v-for="item in items" :class="{highlight:item.id == selected}" @click="selected = item.id">{{item.id}}</li> -->
+
                             <div class="cb-item-pics">
+	                            <div v-for="pic in pics" id="{{pic.id}}" :class="{active:pic.id == selected}" @click="selected = pic.id" class="cb-item-pic">
+	                                <img v-for="pic in pics" src="./img/pics/{{pic.id}}.jpg" alt="Картинка №{{pic.id}}" title="Картинка №{{pic.id}}" width="176"
+	                                     height="220">
+	                            </div>
+
                                 <div class="cb-item-pic">
-                                    <img 
-                                    v-for="imgPic in imgPics | orderBy 'imgPic'" src="./img/pics/ {{ imgPic }} .jpg" alt="Картинка № {{ imgPic }} " title="Картинка № {{ imgPic }} " width="176" height="220">
-                                </div>
-                            </div>
-
-                               <!--  <div @click="selected = v-for="imgPic in imgPics" {{ imgPic }}" :class="{active:selected == {{ imgPic }}}" class="cb-item-pic">
-                                    <img ref="imgInfo" src="./img/pics/{{ imgPic }}.jpg" alt="Картинка №{{ imgPic }}" title="Картинка №{{ imgPic }}" width="176"
-                                         height="220">
-                                </div> -->
-
-
-<!--
-                                <div @click="selected = 1" :class="{active:selected == 1}" class="cb-item-pic">
-                                    <img ref="imgInfo" src="./img/pics/01.jpg" alt="Картинка №1" title="Картинка №1" width="176"
+                                    <img src="./img/pics/01.jpg" alt="Картинка №1" title="Картинка №1" width="176"
                                          height="220">
                                 </div>
-                                <div @click="selected = 2" :class="{active:selected == 2}" class="cb-item-pic">
+                                <div class="cb-item-pic">
                                     <img src="./img/pics/02.jpg" alt="Картинка №2" title="Картинка №2" width="176"
                                          height="220">
                                 </div>
-                                <div @click="selected = 3" :class="{active:selected == 3}" class="cb-item-pic">
+                                <div class="cb-item-pic">
                                     <img src="./img/pics/03.jpg" alt="Картинка №3" title="Картинка №3" width="176"
                                          height="220">
                                 </div>
-                                <div @click="selected = 4" :class="{active:selected == 4}" class="cb-item-pic">
+                                <div class="cb-item-pic">
                                     <img src="./img/pics/04.jpg" alt="Картинка №4" title="Картинка №4" width="176"
                                          height="220">
                                 </div>
-                                <div @click="selected = 5" :class="{active:selected == 5}" class="cb-item-pic">
+                                <div class="cb-item-pic">
                                     <img src="./img/pics/05.jpg" alt="Картинка №5" title="Картинка №5" width="176"
                                          height="220">
                                 </div>
-                                <div @click="selected = 6" :class="{active:selected == 6}" class="cb-item-pic">
+                                <div class="cb-item-pic">
                                     <img src="./img/pics/06.jpg" alt="Картинка №6" title="Картинка №6" width="176"
                                          height="220">
                                 </div>
-                                <div @click="selected = 7" :class="{active:selected == 7}" class="cb-item-pic">
+                                <div class="cb-item-pic">
                                     <img src="./img/pics/07.jpg" alt="Картинка №7" title="Картинка №7" width="176"
                                          height="220">
                                 </div>
-                                <div @click="selected = 8" :class="{active:selected == 8}" class="cb-item-pic">
+                                <div class="cb-item-pic">
                                     <img src="./img/pics/08.jpg" alt="Картинка №8" title="Картинка №8" width="176"
                                          height="220">
                                 </div>
-                                <div @click="selected = 9" :class="{active:selected == 9}" class="cb-item-pic">
+                                <div class="cb-item-pic">
                                     <img src="./img/pics/09.jpg" alt="Картинка №9" title="Картинка №9" width="176"
                                          height="220">
                                 </div>
-                                <div @click="selected = 10" :class="{active:selected == 10}" class="cb-item-pic">
+                                <div class="cb-item-pic">
                                     <img src="./img/pics/10.jpg" alt="Картинка №10" title="Картинка №10" width="176"
                                          height="220">
                                 </div>
-                                <div @click="selected = 11" :class="{active:selected == 11}" class="cb-item-pic">
+                                <div class="cb-item-pic">
                                     <img src="./img/pics/11.jpg" alt="Картинка №11" title="Картинка №11" width="176"
                                          height="220">
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                         <div class="cb-item">
                             <p class="cb-item__title">
                                 Рама
@@ -285,15 +281,15 @@
                                 <span>Дата события</span>
                             </div>
                             <div class="cb-item__line--btns">
-									<span id="ariston" class="btn-font btn-font--active">
-										Ariston
-									</span>
+         <span id="ariston" class="btn-font btn-font--active">
+          Ariston
+         </span>
                                 <span id="davinci" class="btn-font">
-										DaVinci
-									</span>
+          DaVinci
+         </span>
                                 <span id="brody" class="btn-font">
-										Brody
-									</span>
+          Brody
+         </span>
                             </div>
                         </div>
 
@@ -374,164 +370,8 @@
     </div>
 </main>
 
-
-<div id="app">
-  {{ message }}
-</div>
-
-<div id="app-2">
-  <span v-bind:title="message">
-    Наведи на меня курсор на пару секунд,
-    чтобы увидеть динамически связанное значение title!
-  </span>
-</div>
-
-<div id="app-3">
-  <span v-if="seen">Сейчас меня видно</span>
-</div>
-
-<div id="app-4">
-  <ol>
-    <li v-for="todo in todos">
-      {{ todo.text }}
-    </li>
-  </ol>
-</div>
-
-<div id="app-5">
-  <p>{{ message }}</p>
-  <button v-on:click="reverseMessage">Перевернуть сообщение</button>
-</div>
-
-<div id="app-6">
-  <p>{{ message }}</p>
-  <input v-model="message">
-</div>
-
-<ol>
-  <!-- Создаём экземпляр компонента todo-item -->
-  <todo-item></todo-item>
-</ol>
-
-
-<div id="app-7">
-  <ol>
-    <!--
-      Теперь мы можем передать каждому компоненту todo-item объект
-      с информацией о задаче, который будет динамически меняться.
-      Мы также определяем для каждого компонента "key",
-      значение которого мы разберём далее в руководстве.
-    -->
-    <todo-item
-      v-for="item in groceryList"
-      v-bind:todo="item"
-      v-bind:key="item.id">
-    </todo-item>
-  </ol>
-</div>
-
-
-<div id="app">
-  <app-nav></app-nav>
-  <app-view>
-    <app-sidebar></app-sidebar>
-    <app-content></app-content>
-  </app-view>
-</div>
-
-
-
-<div id="app">
-  <p>{{ foo }}</p>
-  <!-- мы теперь не можем обновить `foo`! -->
-  <button v-on:click="foo = 'baz'">Изменить</button>
-</div>
-
-
-<div id="example">
-  <p>Изначальное сообщение: "{{ message }}"</p>
-  <p>Сообщение задом наперёд: "{{ reversedMessage }}"</p>
-</div>
-
-
-<p>Сообщение задом наперёд: "{{ reverseMessage() }}"</p>
-
-
-
-<div id="demo">{{ fullName }}</div>
-
-
-
-<div id="watch-example">
-  <p>
-    Задайте вопрос, на который можно ответить "да" или "нет":
-    <input v-model="question">
-  </p>
-  <p>{{ answer }}</p>
-</div>
-
-
-
-<!-- Поскольку уже существует обширная экосистема ajax-библиотек -->
-<!-- и библиотек функций общего назначения, ядро Vue может       -->
-<!-- оставаться маленьким и не изобретать их заново. Кроме того, -->
-<!-- это позволяет вам использовать только знакомые инструменты. -->
-
-<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
-<script>
-// var watchExampleVM = new Vue({
-//   el: '#watch-example',
-//   data: {
-//     question: '',
-//     answer: 'Пока вы не зададите вопрос, я не могу ответить!'
-//   },
-//   watch: {
-//     // эта функция запускается при любом изменении вопроса
-//     question: function (newQuestion, oldQuestion) {
-//       this.answer = 'Ожидаю, когда вы закончите печатать...'
-//       this.debouncedGetAnswer()
-//     }
-//   },
-//   created: function () {
-//     // _.debounce — это функция lodash, позволяющая ограничить то,
-//     // насколько часто может выполняться определённая операция.
-//     // В данном случае мы ограничиваем частоту обращений к yesno.wtf/api,
-//     // дожидаясь завершения печати вопроса перед отправкой ajax-запроса.
-//     // Узнать больше о функции _.debounce (и её родственнице _.throttle),
-//     // можно в документации: https://lodash.com/docs#debounce
-//     this.debouncedGetAnswer = _.debounce(this.getAnswer, 500)
-//   },
-//   methods: {
-//     getAnswer: function () {
-//       if (this.question.indexOf('?') === -1) {
-//         this.answer = 'Вопросы обычно заканчиваются вопросительным знаком. ;-)'
-//         return
-//       }
-//       this.answer = 'Думаю...'
-//       var vm = this
-//       axios.get('https://yesno.wtf/api')
-//         .then(function (response) {
-//           vm.answer = _.capitalize(response.data.answer)
-//         })
-//         .catch(function (error) {
-//           vm.answer = 'Ошибка! Не могу связаться с API. ' + error
-//         })
-//     }
-//   }
-// })
-
-// <div class="static"
-//      v-bind:class="{ active: isActive, 'text-danger': hasError }">
-// </div>
-
-</script>
-<div class="static"
-     v-bind:class="{ active: isActive, 'text-danger': hasError }">
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 <script src="js/main.js"></script>
+
 </body>
 </html>
